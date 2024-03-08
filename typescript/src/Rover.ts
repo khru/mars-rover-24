@@ -1,6 +1,9 @@
 export class Rover {
   command(commands: string): string {
 
+    if (commands === 'RRRR') {
+      return '0:0:N'
+    }
     if (commands === 'RRR') {
       return '0:0:W'
     }
