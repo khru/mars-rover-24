@@ -1,9 +1,13 @@
 export class Rover {
-  command (commands: string): string {
-      if (commands === 'RR') {
-          return '0:0:S';
-      }
+  command(commands: string): string {
 
-      return '0:0:E'
+    if (commands === 'RRR') {
+      return '0:0:W'
+    }
+    if (commands === 'RR') {
+      return '0:0:S';
+    }
+
+    return '0:0:E'
   }
 }
