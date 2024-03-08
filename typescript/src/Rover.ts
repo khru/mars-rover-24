@@ -1,16 +1,18 @@
 export class Rover {
+
   command(commands: string): string {
+    const position = '0:0:';
 
     if (commands === 'RRRR') {
-      return '0:0:N'
+      return position + 'N'
     }
     if (commands === 'RRR') {
-      return '0:0:W'
+      return position + 'W'
     }
     if (commands === 'RR') {
-      return '0:0:S';
+      return position + 'S';
     }
 
-    return '0:0:E'
+    return position + 'E'
   }
 }
