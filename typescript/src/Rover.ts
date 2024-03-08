@@ -5,26 +5,33 @@ export class Rover {
     const position = '0:0:';
 
     if (commands === 'RRRR') {
-      this.turnRight();
-      this.turnRight();
-      this.turnRight();
-      this.turnRight();
+
+      const commandList = commands.split('');
+      commandList.forEach(()=> {
+          this.turnRight();  
+      });
 
       return position + this.facing;
     }
     if (commands === 'RRR') {
-      this.turnRight();
-      this.turnRight();
-      this.turnRight();
+      const commandList = commands.split('');
+      commandList.forEach(()=> {
+          this.turnRight();  
+      });
       return position + this.facing;
     }
     if (commands === 'RR') {
-      this.turnRight();
-      this.turnRight();
+      const commandList = commands.split('');
+      commandList.forEach(()=> {
+          this.turnRight();  
+      });
       return position + this.facing;
     }
 
-    this.turnRight();
+    const commandList = commands.split('');
+    commandList.forEach(()=> {
+        this.turnRight();  
+    });
     return position + this.facing;
   }
 
