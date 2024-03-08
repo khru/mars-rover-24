@@ -1,18 +1,50 @@
 export class Rover {
+  private facing = 'N';
 
   command(commands: string): string {
     const position = '0:0:';
 
+    const direction = [];
+
     if (commands === 'RRRR') {
-      return position + 'N'
+      this.turnRight();
+      this.turnRight();
+      this.turnRight();
+      this.turnRight();
+      return position + this.facing;
     }
     if (commands === 'RRR') {
-      return position + 'W'
+      this.turnRight();
+      this.turnRight();
+      this.turnRight();
+      return position + this.facing;
     }
     if (commands === 'RR') {
-      return position + 'S';
+      this.turnRight();
+      this.turnRight();
+      return position + this.facing;
     }
 
-    return position + 'E'
+    this.turnRight();
+    return position + this.facing;
+  }
+
+  turnRight() {
+    if (this.facing === 'W') {
+      this.facing = 'N';
+    }
+
+    if (this.facing === 'S') {
+      this.facing = 'W';
+    }
+
+    if (this.facing === 'E') {
+      this.facing = 'S';
+    }
+
+    if (this.facing === 'N') {
+      this.facing = 'E';
+    }
   }
 }
+
