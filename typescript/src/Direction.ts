@@ -6,4 +6,7 @@ export abstract class Direction {
   public getValue(): String {
     return this.value;
   }
+  public isSouth(): boolean {
+    return false;
+  }
 }
