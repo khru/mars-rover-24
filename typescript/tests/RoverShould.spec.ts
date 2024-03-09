@@ -1,6 +1,6 @@
 import { Rover } from '../src/Rover'
 
-describe('Rovers should', () => {
+describe('Rover should', () => {
     let rover: Rover;
 
     beforeEach(()=> {
