@@ -28,9 +28,9 @@ export class Rover {
     if (this.facing.isEast()) {
       this.moveToEast();
     } else if (this.facing.isSouth()) {
-      this.moveToNorth();
-    } else {
       this.moveToSouth();
+    } else {
+      this.moveToNorth();
     }
   }
 
@@ -38,27 +38,27 @@ export class Rover {
     this.horizontalPosition++;
   }
 
-  private moveToSouth(): void {
+  private moveToNorth(): void {
     if (this.isPassingTheNorthEdge()) {
       this.positionateOnSouthEdgePosition();
     } else {
-      this.increaseVerticalPosition();
+      this.increaseVerticalPositionOnce();
     }
   }
 
-  private moveToNorth(): void {
+  private moveToSouth(): void {
     if (this.isPassingTheSouthEdge()) {
       this.positionateOnNorthEdgePosition();
     } else {
-      this.decreaseVerticalPosition();
+      this.decreaseVerticalPositionOnce();
     }
   }
 
-  private increaseVerticalPosition(): void {
+  private increaseVerticalPositionOnce(): void {
     this.verticalPosition++;
   }
 
-  private decreaseVerticalPosition(): void {
+  private decreaseVerticalPositionOnce(): void {
     this.verticalPosition--;
   }
 
