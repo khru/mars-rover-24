@@ -4,6 +4,7 @@ import { West } from "./West";
 
 export class Rover {
   private facing: Direction = new North();
+  private topVerticalEdgePosition = 9; 
   private verticalPosition = 0;
 
   command(commands: string): string {
@@ -11,7 +12,11 @@ export class Rover {
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
         if (commandCharacter === 'M') {
-          this.verticalPosition++;
+          if (this.verticalPosition === this.topVerticalEdgePosition) {
+            this.verticalPosition = 0;
+          } else {
+            this.verticalPosition++;
+          }
         }else if (commandCharacter === 'L') {
           this.facing = this.facing.turnLeft();
         } else {

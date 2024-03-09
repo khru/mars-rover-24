@@ -31,4 +31,8 @@ describe('Rover should', () => {
     it('move three coordinates ahead in the positive direction of the vertical axis', ()=> {
         expect(rover.command('MMM')).toBe('0:3:N');
     })
+
+    it('be in the first vertical coordinate when it passed the top vertical edge moving from south to north', ()=> {
+        expect(rover.command('MMMMMMMMMM')).toBe('0:0:N');
+    })
 })
