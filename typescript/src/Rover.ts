@@ -11,13 +11,7 @@ export class Rover {
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
         if (commandCharacter === 'M') {
-          if (this.verticalPosition == 2) {
-            this.verticalPosition++;
-          } else if (this.verticalPosition == 1) {
-            this.verticalPosition++;
-          } else {
-            this.verticalPosition++;
-          }
+          this.verticalPosition++;
         }else if (commandCharacter === 'L') {
           this.facing = this.facing.turnLeft();
         } else {
