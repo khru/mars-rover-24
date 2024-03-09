@@ -25,18 +25,25 @@ export class Rover {
 
   private move(): void {
     if (this.facing.isSouth()) {
-      if (this.isPassingTheBootomEdge()) {
-        this.positionateAtTopEdgeVerticalPosition();
-      } else {
-        this.decreaseVerticalPosition();
-      }
+      this.moveFromSouth();
     } else {
-      if (this.isPassingTheTopEdge()) {
-        this.positionateAtBootomEdgeVerticalPosition();
-      } else {
-        this.increaseVerticalPosition();
-      }
-      
+      this.moveFromNorth();
+    }
+  }
+
+  private moveFromNorth(): void {
+    if (this.isPassingTheTopEdge()) {
+      this.positionateAtBootomEdgeVerticalPosition();
+    } else {
+      this.increaseVerticalPosition();
+    }
+  }
+
+  private moveFromSouth(): void {
+    if (this.isPassingTheBootomEdge()) {
+      this.positionateAtTopEdgeVerticalPosition();
+    } else {
+      this.decreaseVerticalPosition();
     }
   }
 
