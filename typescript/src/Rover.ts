@@ -29,16 +29,24 @@ export class Rover {
       if (this.isPassingTheBootomEdge()) {
         this.positionateAtTopEdgeVerticalPosition();
       } else {
-        this.verticalPosition--;
+        this.decreaseVerticalPosition();
       }
     } else {
       if (this.isPassingTheTopEdge()) {
         this.positionateAtBootomEdgeVerticalPosition();
       } else {
-        this.verticalPosition++;
+        this.increaseVerticalPosition();
       }
       
     }
+  }
+
+  private increaseVerticalPosition(): void {
+    this.verticalPosition++;
+  }
+
+  private decreaseVerticalPosition(): void {
+    this.verticalPosition--;
   }
 
   private positionateAtBootomEdgeVerticalPosition(): void {
