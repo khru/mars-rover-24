@@ -2,18 +2,7 @@ export class Rover {
   private facing = 'N';
 
   command(commands: string): string {
-    const position = '0:0:';
-
-    if (commands === 'RRRR') {
-
-      const commandList = commands.split('');
-      commandList.forEach(()=> {
-          this.turnRight();  
-      });
-
-      return position + this.facing;
-    }
-    
+    const position = '0:0:';    
 
     const commandList = commands.split('');
     commandList.forEach(()=> {
