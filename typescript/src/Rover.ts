@@ -25,7 +25,9 @@ export class Rover {
   }
 
   private move(): void {
-    if (this.facing.isEast()) {
+    if (this.facing.isWest()) {
+      this.moveToWest();
+    } else if (this.facing.isEast()) {
       this.moveToEast();
     } else if (this.facing.isSouth()) {
       this.moveToSouth();
@@ -36,6 +38,10 @@ export class Rover {
 
   moveToEast(): void {
     this.horizontalPosition++;
+  }
+
+  moveToWest(): void {
+    this.horizontalPosition--;
   }
 
   private moveToNorth(): void {

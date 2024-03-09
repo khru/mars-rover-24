@@ -13,4 +13,7 @@ export abstract class Direction {
   public isEast(): boolean {
     return false;
   }
+  public isWest(): boolean {
+    return false;
+  }
 }

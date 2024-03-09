@@ -11,4 +11,7 @@ export class West extends Direction {
   turnLeft(): Direction {
     return new South();
   }
+  isWest(): boolean {
+    return true;
+  }
 }
