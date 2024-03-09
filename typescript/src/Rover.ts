@@ -31,10 +31,13 @@ export class Rover {
       } else {
         this.verticalPosition--;
       }
-    } else if (this.verticalPosition === this.topVerticalEdgePosition) {
-      this.verticalPosition = 0;
     } else {
-      this.verticalPosition++;
+      if (this.verticalPosition === this.topVerticalEdgePosition) {
+        this.verticalPosition = this.bootomVerticalEdgePosition;
+      } else {
+        this.verticalPosition++;
+      }
+      
     }
   }
 
