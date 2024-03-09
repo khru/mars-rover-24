@@ -56,7 +56,10 @@ describe('Rover should', () => {
         expect(rover.command('M')).toBe('0:0:W');
     })
 
-    
+    it('should move to the west edge when it is positionated in the east edge and facing to east', ()=> {
+        rover.command('RMMMMMMMMM')
+        expect(rover.command('M')).toBe('0:0:E');
+    })
 
     
 })
