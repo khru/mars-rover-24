@@ -8,7 +8,7 @@ export class Rover {
   private verticalPosition = 0;
   private horizontalPosition = 0;
 
-  command(commands: string): string {
+  public command(commands: string): string {
 
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
@@ -36,7 +36,7 @@ export class Rover {
     }
   }
 
-  moveToEast(): void {
+  private moveToEast(): void {
     if (this.isPassingTheEastEdge()) {
       this.positionateOnWestEdgePosition();
     } else {
@@ -44,7 +44,7 @@ export class Rover {
     }
   }
 
-  moveToWest(): void {
+  private moveToWest(): void {
     if (this.isPassingTheWestEdge()) {
       this.positionateOnEastEdgePosition();
     } else {
