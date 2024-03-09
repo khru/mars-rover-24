@@ -44,4 +44,10 @@ describe('Rover should', () => {
         rover.command('MRR')
         expect(rover.command('M')).toBe('0:0:S');
     })
+
+
+    it('move one coordinate ahead to east when facing is east', ()=> {
+        rover.command('R')
+        expect(rover.command('M')).toBe('1:0:E');
+    })
 })

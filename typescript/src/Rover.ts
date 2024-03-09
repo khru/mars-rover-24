@@ -6,6 +6,7 @@ export class Rover {
   private topVerticalEdgePosition = 9;
   private bootomVerticalEdgePosition = 0; 
   private verticalPosition = 0;
+  private horizontalPosition = 0;
 
   command(commands: string): string {
 
@@ -20,15 +21,21 @@ export class Rover {
         }
         
     });
-    return `0:${this.verticalPosition}:${this.facing.getValue()}`;
+    return `${this.horizontalPosition}:${this.verticalPosition}:${this.facing.getValue()}`;
   }
 
   private move(): void {
-    if (this.facing.isSouth()) {
+    if (this.facing.isEast()) {
+      this.moveToEast();
+    } else if (this.facing.isSouth()) {
       this.moveFromSouth();
     } else {
       this.moveFromNorth();
     }
+  }
+
+  moveToEast(): void {
+    this.horizontalPosition++;
   }
 
   private moveFromNorth(): void {
