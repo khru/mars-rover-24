@@ -20,15 +20,15 @@ describe('Rover should', () => {
         expect(rover.command(commandList)).toBe(expectedResult)
     })
 
-    it('move one coordinate ahead in the positive direction of the vertical axis', ()=> {
+    it('move one coordinate ahead in the positive direction of the vertical axis when it is facing to north', ()=> {
         expect(rover.command('M')).toBe('0:1:N');
     })
 
-    it('move two coordinates ahead in the positive direction of the vertical axis', ()=> {
+    it('move two coordinates ahead in the positive direction of the vertical axis when it is facing to north', ()=> {
         expect(rover.command('MM')).toBe('0:2:N');
     })
 
-    it('move three coordinates ahead in the positive direction of the vertical axis', ()=> {
+    it('move three coordinates ahead in the positive direction of the vertical axis when it is facing to north', ()=> {
         expect(rover.command('MMM')).toBe('0:3:N');
     })
 
