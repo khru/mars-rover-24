@@ -45,7 +45,11 @@ export class Rover {
   }
 
   moveToWest(): void {
-    this.horizontalPosition--;
+    if (this.isPassingTheWestEdge()) {
+      this.positionateOnEastEdgePosition();
+    } else {
+      this.horizontalPosition--;
+    }
   }
 
   private moveToNorth(): void {
@@ -84,6 +88,10 @@ export class Rover {
     this.horizontalPosition = this.southEdgePosition;
   }
 
+  private positionateOnEastEdgePosition(): void {
+    this.horizontalPosition = this.northEdgePosition;
+  }
+
   private isPassingTheSouthEdge(): boolean {
     return this.verticalPosition === this.southEdgePosition;
   }
@@ -94,6 +102,10 @@ export class Rover {
 
   private isPassingTheEastEdge(): boolean {
     return this.horizontalPosition === this.northEdgePosition;
+  }
+
+  private isPassingTheWestEdge(): boolean {
+    return this.horizontalPosition === this.southEdgePosition;
   }
 
   private turnRight(): void {
