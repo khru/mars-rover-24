@@ -1,4 +1,5 @@
 import { Direction } from "./Direction";
+import { North } from "./North";
 import { South } from "./South";
 
 
@@ -8,6 +9,6 @@ export class East extends Direction {
     return new South();
   }
   turnLeft(): Direction {
-    throw new Error("Method not implemented.");
+    return new North();
   }
 }
