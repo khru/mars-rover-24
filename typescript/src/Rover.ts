@@ -16,26 +16,6 @@ export class Rover {
 
   private turnRight() {
     this.facing2 = this.facing2.turnRight();
-    return;
-    if (this.facing2.getValue() === 'W') {
-      this.facing2 = this.facing2.turnRight();
-      return;
-    }
-
-    if (this.facing2.getValue() === 'S') {
-      this.facing2 = this.facing2.turnRight();
-      return;
-    }
-
-    if (this.facing2.getValue() === 'E') {      
-      this.facing2 = this.facing2.turnRight();
-      return;
-    }
-
-    if (this.facing2.getValue() === 'N') {
-      this.facing2 = this.facing2.turnRight();
-      return;
-    }
   }
 }
 
