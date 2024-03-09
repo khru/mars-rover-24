@@ -3,8 +3,8 @@ import { North } from "./North";
 
 export class Rover {
   private facing: Direction = new North();
-  private topVerticalEdgePosition = 9;
-  private bootomVerticalEdgePosition = 0; 
+  private northEdgePosition = 9;
+  private southEdgePosition = 0; 
   private verticalPosition = 0;
   private horizontalPosition = 0;
 
@@ -28,9 +28,9 @@ export class Rover {
     if (this.facing.isEast()) {
       this.moveToEast();
     } else if (this.facing.isSouth()) {
-      this.moveFromSouth();
+      this.moveToNorth();
     } else {
-      this.moveFromNorth();
+      this.moveToSouth();
     }
   }
 
@@ -38,17 +38,17 @@ export class Rover {
     this.horizontalPosition++;
   }
 
-  private moveFromNorth(): void {
-    if (this.isPassingTheTopEdge()) {
-      this.positionateAtBootomEdgeVerticalPosition();
+  private moveToSouth(): void {
+    if (this.isPassingTheNorthEdge()) {
+      this.positionateOnSouthEdgePosition();
     } else {
       this.increaseVerticalPosition();
     }
   }
 
-  private moveFromSouth(): void {
-    if (this.isPassingTheBootomEdge()) {
-      this.positionateAtTopEdgeVerticalPosition();
+  private moveToNorth(): void {
+    if (this.isPassingTheSouthEdge()) {
+      this.positionateOnNorthEdgePosition();
     } else {
       this.decreaseVerticalPosition();
     }
@@ -62,20 +62,20 @@ export class Rover {
     this.verticalPosition--;
   }
 
-  private positionateAtBootomEdgeVerticalPosition(): void {
-    this.verticalPosition = this.bootomVerticalEdgePosition;
+  private positionateOnSouthEdgePosition(): void {
+    this.verticalPosition = this.southEdgePosition;
   }
 
-  private positionateAtTopEdgeVerticalPosition(): void {
-    this.verticalPosition = this.topVerticalEdgePosition;
+  private positionateOnNorthEdgePosition(): void {
+    this.verticalPosition = this.northEdgePosition;
   }
 
-  private isPassingTheBootomEdge(): boolean {
-    return this.verticalPosition === this.bootomVerticalEdgePosition;
+  private isPassingTheSouthEdge(): boolean {
+    return this.verticalPosition === this.southEdgePosition;
   }
 
-  private isPassingTheTopEdge(): boolean {
-    return this.verticalPosition === this.topVerticalEdgePosition;
+  private isPassingTheNorthEdge(): boolean {
+    return this.verticalPosition === this.northEdgePosition;
   }
 
   private turnRight(): void {
