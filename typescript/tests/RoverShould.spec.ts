@@ -7,36 +7,16 @@ describe('Rover should', () => {
         rover = new Rover()
     })
 
-
-    it('be facing east when it rotates right and is facing north', () => {
-        expect(rover.command('R')).toBe('0:0:E')
-    })
-
-    it('be facing south when it rotates right and is facing east', () => {
-        expect(rover.command('RR')).toBe('0:0:S')
-    })
-
-    it('be facing west when it rotates right and is facing south', () => {
-        expect(rover.command('RRR')).toBe('0:0:W')
-    })
-
-    it('be facing north when it rotates right and is facing west', () => {
-        expect(rover.command('RRRR')).toBe('0:0:N')
-    })
-
-    it('be facing west when it rotates left and is facing north', () => {
-        expect(rover.command('L')).toBe('0:0:W')
-    })
-
-    it('be facing south when it rotates left and is facing west', () => {
-        expect(rover.command('LL')).toBe('0:0:S')
-    })
-
-    it('be facing east when it rotates left and is facing south', () => {
-        expect(rover.command('LLL')).toBe('0:0:E')
-    })
-
-    it('be facing north when it rotates left and is facing east', () => {
-        expect(rover.command('LLLL')).toBe('0:0:N')
+    it.each([
+        ['be facing east when it rotates right and it was facing north', 'R', '0:0:E'],
+        ['be facing south when it rotates right and it was facing east', 'RR', '0:0:S'],
+        ['be facing west when it rotates right and it was facing south', 'RRR', '0:0:W'],
+        ['be facing north when it rotates right and it and was facing west', 'RRRR', '0:0:N'],
+        ['be facing west when it rotates left and it was facing north', 'L', '0:0:W'],
+        ['be facing south when it rotates left and it was facing west', 'LL', '0:0:S'],
+        ['be facing east when it rotates left and it was facing south', 'LLL', '0:0:E'],
+        ['be facing north when it rotates left and it was facing east', 'LLLL', '0:0:N'],
+    ])('%s', (description: string, commandList: string, expectedResult: string) => {
+        expect(rover.command(commandList)).toBe(expectedResult)
     })
 })
