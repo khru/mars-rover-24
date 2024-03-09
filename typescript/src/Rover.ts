@@ -13,17 +13,7 @@ export class Rover {
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
         if (commandCharacter === 'M') {
-          if (this.facing.isSouth()) {
-            if (this.verticalPosition === this.bootomVerticalEdgePosition) {
-              this.verticalPosition = this.topVerticalEdgePosition;
-            }else {
-              this.verticalPosition--;
-            }            
-          } else if (this.verticalPosition === this.topVerticalEdgePosition) {
-            this.verticalPosition = 0;
-          } else {
-            this.verticalPosition++;
-          }
+          this.move();
         }else if (commandCharacter === 'L') {
           this.turnLeft();
         } else {
@@ -32,6 +22,20 @@ export class Rover {
         
     });
     return `0:${this.verticalPosition}:${this.facing.getValue()}`;
+  }
+
+  private move(): void {
+    if (this.facing.isSouth()) {
+      if (this.verticalPosition === this.bootomVerticalEdgePosition) {
+        this.verticalPosition = this.topVerticalEdgePosition;
+      } else {
+        this.verticalPosition--;
+      }
+    } else if (this.verticalPosition === this.topVerticalEdgePosition) {
+      this.verticalPosition = 0;
+    } else {
+      this.verticalPosition++;
+    }
   }
 
   private turnRight(): void {
