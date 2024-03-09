@@ -13,8 +13,12 @@ export class Rover {
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
         if (commandCharacter === 'M') {
-          if (this.facing.isSouth() && this.verticalPosition === this.bootomVerticalEdgePosition) {
-            this.verticalPosition = this.topVerticalEdgePosition;
+          if (this.facing.isSouth()) {
+            if (this.verticalPosition === this.bootomVerticalEdgePosition) {
+              this.verticalPosition = this.topVerticalEdgePosition;
+            }else {
+              this.verticalPosition--;
+            }            
           } else if (this.verticalPosition === this.topVerticalEdgePosition) {
             this.verticalPosition = 0;
           } else {

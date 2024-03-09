@@ -39,4 +39,9 @@ describe('Rover should', () => {
     it('be in the top vertical coordinate facing south when it passed the bootom vertical edge moving from north to south', ()=> {
         expect(rover.command('RRM')).toBe('0:9:S');
     })
+
+    it('move one coordinates ahead to south direction when it is facing to south and order is move once', ()=> {
+        rover.command('MRR')
+        expect(rover.command('M')).toBe('0:0:S');
+    })
 })
