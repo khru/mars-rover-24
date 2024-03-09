@@ -13,13 +13,7 @@ export class Rover {
 
       return position + this.facing;
     }
-    if (commands === 'RRR') {
-      const commandList = commands.split('');
-      commandList.forEach(()=> {
-          this.turnRight();  
-      });
-      return position + this.facing;
-    }
+    
 
     const commandList = commands.split('');
     commandList.forEach(()=> {
