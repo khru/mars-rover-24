@@ -19,4 +19,8 @@ describe('Rover should', () => {
     ])('%s', (description: string, commandList: string, expectedResult: string) => {
         expect(rover.command(commandList)).toBe(expectedResult)
     })
+
+    it('move one coordinate ahead in the positive direction of the vertical axis', ()=> {
+        expect(rover.command('M')).toBe('0:1:N');
+    })
 })

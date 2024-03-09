@@ -6,11 +6,13 @@ export class Rover {
   private facing: Direction = new North();
 
   command(commands: string): string {
-    const position = '0:0:';    
+    let position = '0:0:';    
 
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
-        if (commandCharacter === 'L') {
+        if (commandCharacter === 'M') {
+          position = '0:1:';
+        }else if (commandCharacter === 'L') {
           this.facing = this.facing.turnLeft();
         } else {
           this.turnRight();  
