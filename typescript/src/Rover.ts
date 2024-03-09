@@ -1,5 +1,6 @@
 import { Direction } from "./Direction";
 import { North } from "./North";
+import { West } from "./West";
 
 export class Rover {
   private facing: Direction = new North();
@@ -8,8 +9,13 @@ export class Rover {
     const position = '0:0:';    
 
     const commandList = commands.split('');
-    commandList.forEach(()=> {
-        this.turnRight();  
+    commandList.forEach((commandCharacter)=> {
+        if (commandCharacter === 'L') {
+          this.facing = new West();
+        } else {
+          this.turnRight();  
+        }
+        
     });
     return position + this.facing.getValue();
   }

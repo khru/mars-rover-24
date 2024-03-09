@@ -24,4 +24,9 @@ describe('Rovers should', () => {
 
         expect(rover.command('RRRR')).toBe('0:0:N')
     })
+
+    it('be facing west when it rotates left', () => {
+        const rover = new Rover()
+        expect(rover.command('L')).toBe('0:0:W')
+    })
 })
