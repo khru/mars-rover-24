@@ -26,19 +26,27 @@ export class Rover {
 
   private move(): void {
     if (this.facing.isSouth()) {
-      if (this.verticalPosition === this.bootomVerticalEdgePosition) {
+      if (this.isPositionatedAtSomeBootomEdgeCoordinate()) {
         this.verticalPosition = this.topVerticalEdgePosition;
       } else {
         this.verticalPosition--;
       }
     } else {
-      if (this.verticalPosition === this.topVerticalEdgePosition) {
+      if (this.isPositionatedAtSomeTopEdgeCoordinate()) {
         this.verticalPosition = this.bootomVerticalEdgePosition;
       } else {
         this.verticalPosition++;
       }
       
     }
+  }
+
+  private isPositionatedAtSomeBootomEdgeCoordinate(): boolean {
+    return this.verticalPosition === this.bootomVerticalEdgePosition;
+  }
+
+  private isPositionatedAtSomeTopEdgeCoordinate(): boolean {
+    return this.verticalPosition === this.topVerticalEdgePosition;
   }
 
   private turnRight(): void {
