@@ -11,7 +11,7 @@ export class Rover {
     return position + this.facing;
   }
 
-  turnRight() {
+  private turnRight() {
     if (this.facing === 'W') {
       this.facing = 'N';
       return;
