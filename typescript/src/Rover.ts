@@ -26,14 +26,14 @@ export class Rover {
 
   private move(): void {
     if (this.facing.isSouth()) {
-      if (this.isPositionatedAtSomeBootomEdgeCoordinate()) {
-        this.verticalPosition = this.topVerticalEdgePosition;
+      if (this.isPassingTheBootomEdge()) {
+        this.positionateAtTopEdgeVerticalPosition();
       } else {
         this.verticalPosition--;
       }
     } else {
-      if (this.isPositionatedAtSomeTopEdgeCoordinate()) {
-        this.verticalPosition = this.bootomVerticalEdgePosition;
+      if (this.isPassingTheTopEdge()) {
+        this.positionateAtBootomEdgeVerticalPosition();
       } else {
         this.verticalPosition++;
       }
@@ -41,11 +41,19 @@ export class Rover {
     }
   }
 
-  private isPositionatedAtSomeBootomEdgeCoordinate(): boolean {
+  private positionateAtBootomEdgeVerticalPosition(): void {
+    this.verticalPosition = this.bootomVerticalEdgePosition;
+  }
+
+  private positionateAtTopEdgeVerticalPosition(): void {
+    this.verticalPosition = this.topVerticalEdgePosition;
+  }
+
+  private isPassingTheBootomEdge(): boolean {
     return this.verticalPosition === this.bootomVerticalEdgePosition;
   }
 
-  private isPositionatedAtSomeTopEdgeCoordinate(): boolean {
+  private isPassingTheTopEdge(): boolean {
     return this.verticalPosition === this.topVerticalEdgePosition;
   }
 
