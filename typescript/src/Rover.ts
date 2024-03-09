@@ -25,7 +25,7 @@ export class Rover {
             this.verticalPosition++;
           }
         }else if (commandCharacter === 'L') {
-          this.facing = this.facing.turnLeft();
+          this.turnLeft();
         } else {
           this.turnRight();  
         }
@@ -34,8 +34,12 @@ export class Rover {
     return `0:${this.verticalPosition}:${this.facing.getValue()}`;
   }
 
-  private turnRight() {
+  private turnRight(): void {
     this.facing = this.facing.turnRight();
+  }
+
+  private turnLeft(): void {
+    this.facing = this.facing.turnLeft();
   }
 
 }
