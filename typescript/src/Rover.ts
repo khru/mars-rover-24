@@ -1,6 +1,5 @@
 import { Direction } from "./Direction";
 import { North } from "./North";
-import { West } from "./West";
 
 export class Rover {
   private facing: Direction = new North();
