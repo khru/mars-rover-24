@@ -7,4 +7,7 @@ export class East extends Direction {
   turnRight(): Direction {
     return new South();
   }
+  turnLeft(): Direction {
+    throw new Error("Method not implemented.");
+  }
 }

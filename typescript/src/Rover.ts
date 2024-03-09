@@ -11,7 +11,7 @@ export class Rover {
     const commandList = commands.split('');
     commandList.forEach((commandCharacter)=> {
         if (commandCharacter === 'L') {
-          this.facing = new West();
+          this.facing = this.facing.turnLeft();
         } else {
           this.turnRight();  
         }
